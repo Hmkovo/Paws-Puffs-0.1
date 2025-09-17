@@ -1,0 +1,12 @@
+{
+  "display_name": "Paws-Puffs",
+  "loading_order": 100,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "extension.css",
+  "author": "SGTY",
+  "version": "2.0.3",
+  "homePage": "https://github.com/Hmkovo/Paws-Puffs",
+  "description": "功能强大的CSS增强扩展，支持JavaScript执行、动态DOM修改和字体管理"
+}

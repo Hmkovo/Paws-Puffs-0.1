@@ -1,0 +1,2089 @@
+/* Enhanced Custom CSS Plus - 扩展样式文件 */
+/* 修改记录：
+ * - 2025-09-09: 修复可视化编辑器和CSS增强的统计标签白色背景问题
+ * - 2025-09-07: 移除可视化编辑器样式，整合内嵌面板样式
+ * - 2025-09-07: 修复可视化编辑器按钮布局问题
+ * - 2025-09-05: 添加字体可用开关和标签管理器样式
+ * - 2025-09-05: 优化布局，添加字体库折叠区域，精简样式
+ */
+
+/* 主容器样式 - 移除上下间距 */
+#EnhancedCustomCSSPlus_settings {
+  margin: 0;
+}
+
+/* 标签页导航 - 紧凑设计 */
+.enhanced-tabs-nav {
+  display: flex;
+  gap: 3px;
+  border-bottom: 2px solid var(--SmartThemeBorderColor);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tab-button {
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  color: var(--SmartThemeBodyColor);
+  cursor: pointer;
+  transition: all 0.3s;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  white-space: nowrap;
+  font-size: 0.85em;
+}
+
+.tab-button:hover {
+  background: var(--SmartThemeBlurTintColor);
+}
+
+.tab-button.active {
+  color: var(--SmartThemeQuoteColor);
+  border-bottom-color: var(--SmartThemeQuoteColor);
+  font-weight: bold;
+}
+
+/* 标签页内容区域 - 使用原生滚动条 */
+.enhanced-tabs-content {
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 8px;
+  background: var(--SmartThemeBlurTintColor);
+  border-radius: 5px;
+  margin-top: 8px;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 顶部控制栏 - 更紧凑 */
+.enhanced-top-controls {
+  background: var(--SmartThemeBlurTintColor);
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.enhanced-top-controls .flex-container {
+  gap: 10px;
+}
+
+/* 区块样式 - 减少间距 */
+.enhanced-section {
+  margin-bottom: 10px;
+}
+
+.enhanced-section h4 {
+  margin: 8px 0;
+  color: var(--SmartThemeQuoteColor);
+  font-size: 1em;
+}
+
+.enhanced-section h5 {
+  margin: 6px 0;
+  color: var(--SmartThemeBodyColor);
+  opacity: 0.9;
+  font-size: 0.9em;
+}
+
+/* 代码块 */
+.code-block,
+pre.code-block {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8em;
+  line-height: 1.3;
+  margin: 5px 0;
+}
+
+/* 帮助内容 */
+.enhanced-help-content {
+  font-size: 0.85em;
+}
+
+.help-section {
+  margin: 8px 0;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* 字体可用开关区域 - 修改：精简样式，移除高亮背景 */
+.font-enable-section-compact {
+  padding: 6px 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--SmartThemeBorderColor);
+}
+
+.font-enable-section-compact .checkbox_label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.font-enable-section-compact .hint-inline {
+  margin-left: 8px;
+  font-size: 0.8em;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* 字体管理部分 - 折叠设计 */
+.font-add-section {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.font-add-header {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.font-add-header:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.font-add-header h4 {
+  margin: 0;
+}
+
+.font-add-content {
+  padding: 12px;
+}
+
+/* 字体库折叠区域 - 新增样式 */
+.font-warehouse-section {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.font-warehouse-header {
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  background: rgba(var(--SmartThemeQuoteColor-rgb), 0.1);
+  border: 1px solid var(--SmartThemeQuoteColor);
+}
+
+.font-warehouse-header:hover {
+  background: rgba(var(--SmartThemeQuoteColor-rgb), 0.15);
+}
+
+.font-warehouse-header h4 {
+  margin: 0;
+  font-size: 0.95em;
+  font-weight: bold;
+  color: var(--SmartThemeQuoteColor);
+}
+
+.font-warehouse-content {
+  padding: 12px;
+}
+
+/* 字体输入区域 - 不设置颜色，使用原生样式 */
+.font-add-input textarea {
+  width: 100%;
+  min-height: 60px;
+  border-radius: 3px;
+  padding: 6px;
+  resize: vertical;
+  font-family: monospace;
+  font-size: 0.8em;
+}
+
+.font-add-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.font-add-controls input {
+  flex: 1;
+}
+
+/* 紧凑型按钮和输入框 */
+.menu_button.compact {
+  padding: 4px 8px;
+  font-size: 0.85em;
+}
+
+/* 特别紧凑的添加按钮 */
+.menu_button.compact-btn {
+  padding: 3px 10px;
+  font-size: 0.8em;
+}
+
+.menu_button.icon-only {
+  padding: 4px 6px;
+}
+
+input.compact,
+select.compact {
+  padding: 4px 8px;
+  font-size: 0.85em;
+}
+
+/* 紧凑的复选框 */
+.compact-checkbox {
+  font-size: 0.8em;
+  margin-right: 5px;
+}
+
+.compact-checkbox span {
+  font-size: 0.85em;
+}
+
+/* 字体工具栏 - 紧凑布局 */
+.font-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* 字体列表 */
+.font-list-container {
+  min-height: 150px;
+  position: relative;
+}
+
+.font-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* 当前字体置顶时的特殊样式 */
+.font-item.current:first-child {
+  border-top: 2px solid var(--SmartThemeQuoteColor);
+  margin-top: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 字体项 - 折叠式设计 */
+.font-item {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+  font-size: 0.85em;
+  overflow: hidden;
+}
+
+.font-item:hover {
+  background: rgba(var(--SmartThemeQuoteColor-rgb), 0.15);
+}
+
+.font-item.current {
+  background: rgba(var(--SmartThemeQuoteColor-rgb), 0.25);
+  border-color: var(--SmartThemeQuoteColor);
+}
+
+.font-item.expanded {
+  border-color: var(--SmartThemeQuoteColor);
+}
+
+.font-item.dragging {
+  opacity: 0.5;
+}
+
+/* 字体主信息行 */
+.font-item-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  gap: 8px;
+}
+
+.font-item-header {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.expand-icon {
+  font-size: 0.8em;
+  opacity: 0.7;
+  transition: transform 0.3s;
+}
+
+.font-item-name {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.current-badge {
+  color: var(--SmartThemeQuoteColor);
+}
+
+/* 字体标签 - 在主行显示 */
+.font-item-tags {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.font-tag {
+  background: var(--SmartThemeQuoteColor);
+  color: var(--SmartThemeBodyColor);
+  padding: 1px 5px;
+  border-radius: 8px;
+  font-size: 0.7em;
+  white-space: nowrap;
+}
+
+.font-tag-empty {
+  opacity: 0.5;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+/* 字体操作按钮 - 极简设计 */
+.font-item-actions {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.font-action-btn {
+  padding: 3px 5px;
+  background: transparent;
+  border: 1px solid var(--SmartThemeBorderColor);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.7em;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.font-action-btn:hover {
+  background: var(--SmartThemeQuoteColor);
+  color: var(--SmartThemeBodyColor);
+  opacity: 1;
+}
+
+.font-action-btn i {
+  font-size: 0.9em;
+}
+
+/* 字体详情展开区域 */
+.font-item-details {
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border-top: 1px solid var(--SmartThemeBorderColor);
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  to {
+    opacity: 1;
+    max-height: 300px;
+  }
+}
+
+/* 标签编辑器 */
+.tag-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tag-section {
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.tag-section h6 {
+  margin: 0 0 6px 0;
+  font-size: 0.85em;
+  color: var(--SmartThemeQuoteColor);
+}
+
+/* 当前标签列表 */
+.current-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--SmartThemeQuoteColor);
+  color: var(--SmartThemeBodyColor);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.75em;
+}
+
+.remove-tag-btn {
+  background: none;
+  border: none;
+  color: var(--SmartThemeBodyColor);
+  cursor: pointer;
+  font-size: 1.2em;
+  line-height: 1;
+  padding: 0;
+  opacity: 0.8;
+}
+
+.remove-tag-btn:hover {
+  opacity: 1;
+  color: #ff4444;
+}
+
+.no-tags {
+  font-size: 0.8em;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* 添加标签输入 */
+.tag-input-group {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.tag-new-input {
+  flex: 1;
+  padding: 4px 6px;
+  font-size: 0.8em;
+  border-radius: 3px;
+}
+
+.add-new-tag-btn {
+  padding: 4px 10px;
+  font-size: 0.8em;
+  cursor: pointer;
+  background: var(--SmartThemeQuoteColor);
+  color: var(--SmartThemeBodyColor);
+  border: none;
+  border-radius: 3px;
+}
+
+.add-new-tag-btn:hover {
+  opacity: 0.8;
+}
+
+/* 现有标签选择 */
+.existing-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.tag-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 6px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.tag-checkbox:hover {
+  background: rgba(var(--SmartThemeQuoteColor-rgb), 0.2);
+}
+
+.tag-checkbox input {
+  margin: 0;
+  width: auto;
+}
+
+.tag-checkbox span {
+  user-select: none;
+}
+
+.apply-tags-btn {
+  padding: 4px 10px;
+  font-size: 0.8em;
+  background: var(--SmartThemeQuoteColor);
+  color: var(--SmartThemeBodyColor);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.apply-tags-btn:hover {
+  opacity: 0.8;
+}
+
+/* 标签管理器区域 - 修改：减少padding，优化布局 */
+.tag-manager-section-compact {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.tag-manager-header {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.tag-manager-header:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.tag-manager-header h4 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+}
+
+.tag-manager-content-compact {
+  padding: 8px;
+}
+
+.tag-manager-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* 标签管理项 - 修改：紧凑布局，类似字体项 */
+.tag-manager-item-compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  transition: background 0.2s;
+  font-size: 0.85em;
+}
+
+.tag-manager-item-compact:hover {
+  background: rgba(var(--SmartThemeQuoteColor-rgb), 0.1);
+}
+
+.tag-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.tag-name {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: var(--SmartThemeQuoteColor);
+}
+
+.tag-usage {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+/* 标签删除按钮 - 修改：稍微大一点，但不换行 */
+.tag-delete-btn-compact {
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid var(--SmartThemeBorderColor);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.75em;
+  opacity: 0.8;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.tag-delete-btn-compact:hover {
+  background: #ff4444;
+  border-color: #ff4444;
+  color: white;
+  opacity: 1;
+}
+
+.tag-manager-empty {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+}
+
+.tag-manager-empty p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* 空状态 */
+.font-empty-state {
+  text-align: center;
+  padding: 30px;
+  color: var(--SmartThemeBodyColor);
+  opacity: 0.6;
+}
+
+.font-empty-state i {
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.font-empty-state p {
+  margin: 5px 0;
+  font-size: 0.85em;
+}
+
+/* 提示文字 */
+.hint {
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin: 4px 0;
+  font-style: italic;
+}
+
+.hint-inline {
+  display: inline;
+  margin: 0 0 0 8px;
+}
+
+/* 工具箱 - 优化布局 */
+.tool-item {
+  padding: 8px;
+  margin: 8px 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.tool-item h5 {
+  margin: 0 0 8px 0;
+}
+
+.tool-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tool-actions .menu_button {
+  display: inline-block;
+  width: auto;
+}
+
+/* 性能统计 - 保持网格布局 */
+#performance-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.stat-item {
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.05);
+  /* 修复：改为半透明黑色背景 */
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85em;
+}
+
+.stat-label {
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: var(--SmartThemeQuoteColor);
+}
+
+/* 关于页面 - 按钮横向布局 */
+.about-content {
+  font-size: 0.85em;
+}
+
+.about-content ul {
+  margin: 8px 0;
+  padding-left: 15px;
+}
+
+.about-content li {
+  margin: 4px 0;
+  list-style-type: none;
+}
+
+.about-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.about-actions .menu_button {
+  display: inline-block;
+  width: auto;
+}
+
+/* 危险按钮 */
+.danger {
+  background: #ff4444 !important;
+  color: white !important;
+  border-color: #ff4444 !important;
+}
+
+.danger:hover {
+  background: #cc0000 !important;
+}
+
+/* CSS增强功能特定样式 */
+.css-enhance-section {
+  /* 继承默认样式 */
+}
+
+.css-enhance-enable-section-compact {
+  padding: 6px 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--SmartThemeBorderColor);
+}
+
+.css-enhance-disabled-notice {
+  padding: 10px;
+  background: rgba(255, 165, 0, 0.1);
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 0.85em;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.section-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.mini-btn {
+  padding: 4px 8px;
+  font-size: 0.8em;
+  cursor: pointer;
+  background: var(--SmartThemeButtonColor);
+  color: var(--SmartThemeBodyColor);
+  border: 1px solid var(--SmartThemeBorderColor);
+  border-radius: 3px;
+}
+
+.help-toggle {
+  margin-bottom: 10px;
+}
+
+.api-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 0.85em;
+}
+
+.api-list li {
+  margin: 5px 0;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.api-list code {
+  font-family: monospace;
+  font-size: 0.9em;
+  color: var(--SmartThemeQuoteColor);
+}
+
+.stats-section {
+  margin-top: 20px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ========== 可视化编辑器设置页面样式 ========== */
+/* 与其他页面保持视觉一致，跟随SillyTavern主题 */
+.visual-editor-section {
+  /* 继承基础样式 */
+}
+
+/* 功能开关区域 - 与字体管理页面保持一致 */
+.visual-editor-enable-section-compact {
+  padding: 6px 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--SmartThemeBorderColor);
+}
+
+.visual-editor-enable-section-compact .checkbox_label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.visual-editor-enable-section-compact .hint-inline {
+  margin-left: 8px;
+  font-size: 0.8em;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* 功能说明 */
+.visual-editor-description {
+  margin: 10px 0;
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+
+.visual-editor-description p {
+  margin: 5px 0;
+}
+
+/* 可编辑元素分类 - 移除硬编码的蓝色，使用主题色 */
+.visual-editor-categories {
+  margin-top: 15px;
+}
+
+.visual-editor-categories h5 {
+  margin: 10px 0 8px 0;
+  color: var(--SmartThemeBodyColor);
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.category-item:hover {
+  background: rgba(var(--SmartThemeQuoteColor-rgb), 0.1);
+}
+
+.category-name {
+  font-size: 0.85em;
+  color: var(--SmartThemeBodyColor);
+}
+
+.category-count {
+  font-size: 0.8em;
+  color: var(--SmartThemeQuoteColor);
+  opacity: 0.8;
+}
+
+/* 主题管理部分 */
+.visual-editor-theme-section {
+  margin-top: 15px;
+}
+
+.visual-editor-theme-section h5 {
+  margin: 10px 0 8px 0;
+  color: var(--SmartThemeBodyColor);
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+.theme-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 使用说明 */
+.visual-editor-help {
+  margin-top: 15px;
+}
+
+.visual-editor-help h5 {
+  margin: 10px 0 8px 0;
+  color: var(--SmartThemeBodyColor);
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+.help-list {
+  margin: 8px 0;
+  padding-left: 20px;
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+
+.help-list li {
+  margin: 4px 0;
+  list-style-type: decimal;
+}
+
+/* 
+ * 这部分是在自定义CSS下方显示的内嵌编辑器面板样式
+ * 包含元素选择器、属性编辑器、预设管理等功能
+ * 移除了全局的 width: 100%，让输入框保持自然宽度
+ * 为数字输入框设置合理的宽度：width: auto;min-width: 60px; max-width: 100px;
+ * 只对需要全宽的文本输入框和选择框设置 100% 宽度
+ * 2025-09-08: 添加移动端优化，元素列表增高，工具栏按钮换行
+ * 2025-09-09: 添加清除CSS按钮样式，从设置页面迁移功能
+ * 2025-09-10: 修复滚动问题和条件显示功能
+ * 2025-01-10: 修复toggle控件勾选框显示问题
+ * 2025-01-10: 修复滚动高度问题 - 完整的flex布局链
+ * 
+ * ========== 重要：Flex布局滚动设计要点 ==========
+ * 1. 完整的flex容器链：每一级都必须正确设置
+ *    - .ve-properties-panel (flex: 1) → 横向占满剩余空间
+ *    - .ve-element-panel (height: 100%, display: flex) → 纵向占满并成为flex容器
+ *    - .ve-panel-header (flex-shrink: 0) → 固定高度不压缩
+ *    - .ve-panel-body (flex: 1, height: 0) → 占满剩余高度并可滚动
+ * 
+ * 2. 关键技巧：height: 0 + flex: 1
+ *    - 这是让flex子元素可滚动的经典模式
+ *    - height: 0 强制元素不占用最小内容高度
+ *    - flex: 1 让它扩展填充剩余空间
+ *    - overflow-y: auto 在内容超出时显示滚动条
+ * 
+ * 3. 注意事项（不要随意修改）：
+ *    - 不要在.ve-panel-body上设置固定的max-height（除了calc计算）
+ *    - 不要删除.ve-element-panel的height: 100%
+ *    - 不要在JS中用内联style设置固定高度（如max-height: 500px）
+ *    - 移动端可以用固定max-height，但桌面端必须用flex
+ * ================================================
+ */
+
+/* 主容器 - 固定高度的内嵌面板 */
+#visual-editor-inline-panel {
+  margin-top: 10px;
+  border: 1px solid var(--SmartThemeBorderColor);
+  border-radius: 5px;
+  overflow: hidden;
+  height: 650px;
+  /* 固定在650px不能动 */
+  display: flex;
+  flex-direction: column;
+}
+
+.ve-inline-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85em;
+  /* 统一字体大小，与其他页面一致 */
+}
+
+/* 顶部工具栏 */
+.ve-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: var(--SmartThemeBlurTintColor);
+  border-bottom: 1px solid var(--SmartThemeBorderColor);
+  flex-shrink: 0;
+}
+
+.ve-toolbar-left,
+.ve-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 标签页按钮样式 */
+.ve-tab-btn {
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid var(--SmartThemeBorderColor);
+  border-radius: 3px;
+  color: var(--SmartThemeBodyColor);
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: all 0.2s;
+}
+
+.ve-tab-btn:hover {
+  background: var(--SmartThemeBlurTintColor);
+}
+
+.ve-tab-btn.active {
+  background: var(--SmartThemeQuoteColor);
+  color: white;
+  border-color: var(--SmartThemeQuoteColor);
+}
+
+/* 通用按钮样式 */
+.ve-btn,
+.ve-btn-small,
+.ve-btn-primary {
+  padding: 5px 10px;
+  background: var(--SmartThemeButtonColor);
+  border: 1px solid var(--SmartThemeBorderColor);
+  border-radius: 3px;
+  color: var(--SmartThemeBodyColor);
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: all 0.2s;
+}
+
+.ve-btn:hover:not(:disabled) {
+  background: var(--SmartThemeBlurTintColor);
+}
+
+.ve-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ve-btn-primary {
+  background: var(--SmartThemeQuoteColor);
+  color: white;
+  border-color: var(--SmartThemeQuoteColor);
+}
+
+.ve-btn-primary:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.ve-btn-small {
+  padding: 3px 6px;
+  font-size: 0.8em;
+}
+
+/* 危险按钮样式 - 清除CSS按钮 */
+.ve-btn-danger {
+  background: #f44336;
+  color: white;
+  border-color: #f44336;
+}
+
+.ve-btn-danger:hover:not(:disabled) {
+  background: #d32f2f;
+  border-color: #d32f2f;
+}
+
+/* 徽章 */
+.ve-badge {
+  display: inline-block;
+  padding: 1px 4px;
+  margin-left: 4px;
+  background: red;
+  color: white;
+  border-radius: 10px;
+  font-size: 0.75em;
+  min-width: 16px;
+  text-align: center;
+}
+
+.ve-separator {
+  width: 1px;
+  height: 20px;
+  background: var(--SmartThemeBorderColor);
+  margin: 0 5px;
+}
+
+/* 内容区域 */
+.ve-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.ve-tab-panel {
+  display: none;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ve-tab-panel.active {
+  display: block;
+}
+
+/* 元素编辑布局 */
+.ve-elements-layout {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+  padding: 10px;
+}
+
+.ve-elements-sidebar {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background: var(--SmartThemeBlurTintColor);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+/* 搜索栏样式 */
+.ve-search-bar {
+  padding: 10px;
+  border-bottom: 1px solid var(--SmartThemeBorderColor);
+}
+
+.ve-search-input {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--SmartThemeBorderColor);
+  border-radius: 4px;
+  font-size: 13px;
+  background: var(--SmartThemeBlurTintColor);
+  color: var(--SmartThemeBodyColor);
+}
+
+.ve-filter-bar {
+  margin-bottom: 8px;
+}
+
+/* 下拉选择框 - 使用主题样式 */
+.ve-select {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 0.85em;
+  border-radius: 3px;
+  border: 1px solid var(--SmartThemeBorderColor);
+  background: var(--SmartThemeBlurTintColor);
+  color: var(--SmartThemeBodyColor);
+}
+
+.ve-element-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* 快速模板布局容器 - 完全复刻ve-elements-layout */
+.ve-templates-container {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+  padding: 10px;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* 图标组布局容器 - 完全复刻ve-elements-layout */
+.ve-icons-container {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+  padding: 10px;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.ve-element-item {
+  padding: 6px;
+  background: var(--SmartThemeBlurTintColor);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  font-size: 0.85em;
+}
+
+.ve-element-item:hover {
+  background: rgba(var(--SmartThemeQuoteColor-rgb), 0.2);
+}
+
+.ve-element-item.selected {
+  background: var(--SmartThemeQuoteColor);
+  color: white;
+}
+
+.ve-element-name {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.ve-element-selector {
+  font-size: 0.75em;
+  opacity: 0.7;
+  font-family: monospace;
+}
+
+.ve-element-indicator {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: var(--SmartThemeQuoteColor);
+  font-size: 0.6em;
+}
+
+.ve-element-item.selected .ve-element-indicator {
+  color: white;
+}
+
+.ve-properties-panel {
+  flex: 1;
+  background: var(--SmartThemeBlurTintColor);
+  border-radius: 4px;
+  padding: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  /* 添加：允许flex收缩 */
+}
+
+/* 属性面板容器 - 新增 */
+.ve-element-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ========== 属性面板主体（修复滚动） ========== */
+.ve-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 15px 30px 10px;
+  max-height: calc(100% - 45px);
+  /* 这行是关键：父容器高度 - header高度 */
+  height: 0;
+  min-height: 0;
+}
+
+/* 面板头部 */
+.ve-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: var(--SmartThemeBlurTintColor);
+  border-bottom: 1px solid var(--SmartThemeBorderColor);
+  flex-shrink: 0;
+  min-height: 35px;
+}
+
+.ve-panel-header h4 {
+  margin: 0;
+  font-size: 0.95em;
+}
+
+.ve-panel-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* 属性分组 */
+.ve-property-group {
+  margin-bottom: 15px;
+}
+
+.ve-group-header {
+  position: sticky;
+  top: -10px;
+  background: var(--SmartThemeBlurTintColor);
+  z-index: 10;
+  padding: 8px 0;
+  margin: 10px 0 5px 0;
+  border-bottom: 1px solid var(--SmartThemeBorderColor);
+}
+
+.ve-group-header h5 {
+  margin: 0;
+  font-size: 0.9em;
+  color: var(--SmartThemeQuoteColor);
+}
+
+.ve-group-content {
+  padding: 5px 0;
+}
+
+/* ========== 条件显示样式（关键修复） ========== */
+.ve-conditional-wrapper {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.ve-conditional-wrapper.ve-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 控件项 */
+.ve-control-item {
+  margin-bottom: 12px;
+}
+
+.ve-control-item.ve-hidden {
+  display: none !important;
+}
+
+/* 必须排除toggle控件的label */
+.ve-control-item:not(.ve-toggle-control) label {
+  display: block;
+  font-size: 0.8em;
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+
+/* 修复滚动 - 最后一个分组额外底部空间 */
+.ve-property-group:last-child {
+  margin-bottom: 50px;
+}
+
+.ve-hint {
+  display: block;
+  font-size: 0.7em;
+  color: var(--SmartThemeQuoteColor);
+  opacity: 0.7;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+/* 颜色输入 */
+.ve-color-input {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.ve-control-color {
+  width: 32px;
+  height: 26px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+}
+
+.ve-control-color-text {
+  flex: 1;
+  padding: 4px 6px;
+  font-size: 0.85em;
+  border-radius: 3px;
+  border: 1px solid var(--SmartThemeBorderColor);
+  background: var(--SmartThemeBlurTintColor);
+  color: var(--SmartThemeBodyColor);
+}
+
+/* 滑块输入 */
+.ve-slider-input {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.ve-control-slider {
+  flex: 1;
+}
+
+.ve-control-number {
+  width: 60px;
+  padding: 4px 6px;
+  font-size: 0.85em;
+  border-radius: 3px;
+  border: 1px solid var(--SmartThemeBorderColor);
+  background: var(--SmartThemeBlurTintColor);
+  color: var(--SmartThemeBodyColor);
+}
+
+/* 选择控件 */
+.ve-control-select {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 0.85em;
+  border-radius: 3px;
+  border: 1px solid var(--SmartThemeBorderColor);
+  background: var(--SmartThemeBlurTintColor);
+  color: var(--SmartThemeBodyColor);
+}
+
+/* 文本控件 */
+.ve-control-text {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 0.85em;
+  border-radius: 3px;
+  border: 1px solid var(--SmartThemeBorderColor);
+  background: var(--SmartThemeBlurTintColor);
+  color: var(--SmartThemeBodyColor);
+}
+
+/* 开关控件 - 修复：使用新的类名，显示原生勾选框 */
+.ve-control-toggle-checkbox {
+  /* 显示原生勾选框 */
+  display: inline-block;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.ve-toggle-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ve-toggle-text {
+  user-select: none;
+  font-size: 0.85em;
+}
+
+/* 清除按钮 */
+.ve-clear-btn {
+  padding: 2px 6px;
+  background: transparent;
+  border: 1px solid var(--SmartThemeBorderColor);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: all 0.2s;
+}
+
+.ve-clear-btn:hover {
+  background: #ff4444;
+  color: white;
+  border-color: #ff4444;
+}
+
+/* 空状态显示 */
+.ve-no-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  opacity: 0.5;
+  font-size: 0.9em;
+}
+
+.ve-no-selection i {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.ve-empty-message {
+  text-align: center;
+  opacity: 0.5;
+  padding: 20px;
+  font-size: 0.85em;
+}
+
+.ve-no-properties {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+  font-size: 0.85em;
+}
+
+/* 状态栏 */
+.ve-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background: var(--SmartThemeBlurTintColor);
+  border-top: 1px solid var(--SmartThemeBorderColor);
+  font-size: 0.75em;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.ve-status-left,
+.ve-status-right {
+  display: flex;
+  gap: 15px;
+}
+
+/* 滚动条样式 */
+.ve-element-list::-webkit-scrollbar,
+.ve-panel-body::-webkit-scrollbar,
+.ve-templates-container::-webkit-scrollbar,
+.ve-icons-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ve-element-list::-webkit-scrollbar-thumb,
+.ve-panel-body::-webkit-scrollbar-thumb,
+.ve-templates-container::-webkit-scrollbar-thumb,
+.ve-icons-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.ve-element-list::-webkit-scrollbar-thumb:hover,
+.ve-panel-body::-webkit-scrollbar-thumb:hover,
+.ve-templates-container::-webkit-scrollbar-thumb:hover,
+.ve-icons-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 移动端优化样式 ========== */
+@media (max-width: 768px) {
+
+  /* 移动端增加主容器高度 */
+  #visual-editor-inline-panel {
+    height: 600px;
+  }
+
+  /* 工具栏响应式布局 - 允许换行 */
+  .ve-toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 8px;
+  }
+
+  .ve-toolbar-left,
+  .ve-toolbar-right {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* 移动端工具栏右侧按钮组独占一行 */
+  .ve-toolbar-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  /* 实时预览开关在移动端更紧凑 */
+  .ve-realtime-toggle {
+    margin-left: 8px;
+  }
+
+  /* 标签页按钮调整 */
+  .ve-tab-btn {
+    padding: 6px 8px;
+    font-size: 0.8em;
+  }
+
+  /* 操作按钮在移动端稍微紧凑 */
+  .ve-btn {
+    padding: 6px 8px;
+    font-size: 0.8em;
+  }
+
+  /* 徽章位置调整 */
+  .ve-badge {
+    font-size: 0.7em;
+    padding: 0px 3px;
+  }
+
+  /* 元素编辑布局改为垂直排列 */
+  .ve-elements-layout {
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+    /* 删除 height: calc(100% - 80px); 这行 */
+  }
+
+  /* 快速模板和图标组移动端布局 */
+  .ve-templates-container,
+  .ve-icons-container {
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  /* 移动端元素侧边栏调整 */
+  .ve-elements-sidebar {
+    width: 100%;
+    min-height: 150px;
+    /* 从180px减少到150px，给属性面板更多空间 */
+    max-height: 180px;
+    /* 从200px减少到180px */
+    padding: 6px;
+  }
+
+  /* 属性面板移动端优化 - 简化版 */
+  .ve-properties-panel {
+    flex: 1;
+    min-height: 0;
+    /* 允许flex收缩 */
+    padding: 6px;
+  }
+
+  /* 修复面板主体滚动 - 简化版 */
+  .ve-panel-body {
+    max-height: 300px;
+    /* 给一个固定高度，而不是none */
+    padding-bottom: 50px;
+    /* 确保底部内容可见 */
+  }
+
+
+  /* 状态栏字体更小 */
+  .ve-statusbar {
+    font-size: 0.7em;
+    padding: 4px 8px;
+  }
+
+  .ve-status-left,
+  .ve-status-right {
+    gap: 8px;
+  }
+
+  /* 隐藏部分状态信息以节省空间 */
+  .ve-status-right span:not(:first-child) {
+    display: none;
+  }
+}
+
+/* 更小屏幕的额外优化 */
+@media (max-width: 480px) {
+
+  /* 超小屏幕进一步增加高度 */
+  #visual-editor-inline-panel {
+    height: 650px;
+  }
+
+  /* 工具栏按钮更紧凑 */
+  .ve-tab-btn,
+  .ve-btn {
+    padding: 5px 6px;
+    font-size: 0.75em;
+  }
+
+  /* 隐藏按钮文字，只显示图标 */
+  .ve-tab-btn {
+    min-width: 35px;
+  }
+
+  /* 实时预览标签文字在超小屏幕隐藏 */
+  .ve-switch-label {
+    display: none;
+  }
+
+  /* 元素侧边栏在超小屏幕更高 */
+  .ve-elements-sidebar {
+    min-height: 200px;
+    max-height: 220px;
+  }
+}
+
+/* ========== 滑轨两列布局优化 ========== */
+/* 滑轨组容器 - 用于包裹两个滑轨 */
+.ve-slider-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* 滑轨组中的控件项 */
+.ve-slider-group .ve-control-item {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* 单个滑轨保持原样 */
+.ve-control-item.ve-slider-control {
+  margin-bottom: 12px;
+}
+
+/* 滑轨输入区域优化 */
+.ve-slider-input {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.ve-control-slider {
+  flex: 1;
+  min-width: 0;
+  /* 防止flex子项溢出 */
+}
+
+/* 数字输入框保持小尺寸 */
+.ve-control-number {
+  width: 60px;
+  flex-shrink: 0;
+  padding: 4px 6px;
+  font-size: 0.85em;
+  border-radius: 3px;
+  border: 1px solid var(--SmartThemeBorderColor);
+  background: var(--SmartThemeBlurTintColor);
+  color: var(--SmartThemeBodyColor);
+}
+
+/* 移动端响应式：滑轨组改为垂直排列 */
+@media (max-width: 768px) {
+  .ve-slider-group {
+    flex-direction: column;
+  }
+
+  .ve-slider-group .ve-control-item {
+    width: 100%;
+  }
+}
+
+/* ========== 可视化编辑器内嵌面板样式 结束 ========== */
+
+/* 响应式设计 - 手机端优化 */
+@media (max-width: 768px) {
+  .enhanced-tabs-nav {
+    overflow-x: auto;
+  }
+
+  .tab-button {
+    font-size: 0.8em;
+    padding: 5px 8px;
+  }
+
+  /* 字体可用区域手机端 */
+  .font-enable-section-compact .hint-inline {
+    display: block;
+    margin-left: 24px;
+    margin-top: 2px;
+  }
+
+  /* 字体库标题手机端 */
+  .font-warehouse-header h4 {
+    font-size: 0.85em;
+  }
+
+  /* 手机端字体项优化 */
+  .font-item-main {
+    padding: 5px 6px;
+  }
+
+  .font-item-header {
+    flex-wrap: wrap;
+  }
+
+  .font-item-tags {
+    display: none;
+    /* 手机端隐藏标签，展开后显示 */
+  }
+
+  .font-item.expanded .font-item-tags {
+    display: flex;
+    margin: 4px 0 0 0;
+    width: 100%;
+  }
+
+  /* 按钮组保持一行 */
+  .font-item-actions {
+    gap: 1px;
+  }
+
+  .font-action-btn {
+    padding: 2px 4px;
+    font-size: 0.65em;
+  }
+
+  .font-action-btn i {
+    font-size: 0.85em;
+  }
+
+  /* 工具栏响应式 */
+  .font-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-left,
+  .toolbar-right {
+    width: 100%;
+  }
+
+  /* 标签编辑器手机端 */
+  .tag-input-group {
+    flex-direction: column;
+  }
+
+  .tag-new-input {
+    width: 100%;
+  }
+
+  .add-new-tag-btn {
+    width: 100%;
+  }
+
+  .existing-tags {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+
+  /* 标签管理器手机端优化 - 保持单行显示 */
+  .tag-manager-item-compact {
+    padding: 6px;
+    font-size: 0.8em;
+  }
+
+  .tag-info {
+    gap: 6px;
+  }
+
+  .tag-name {
+    font-size: 0.85em;
+  }
+
+  .tag-usage {
+    font-size: 0.75em;
+  }
+
+  .tag-delete-btn-compact {
+    padding: 3px 6px;
+    font-size: 0.7em;
+  }
+
+  .tag-delete-btn-compact i {
+    font-size: 0.85em;
+  }
+
+  /* 可视化编辑器响应式 */
+  .ve-elements-layout {
+    flex-direction: column;
+  }
+
+  /* 快速模板和图标组超小屏幕布局 */
+  .ve-templates-container,
+  .ve-icons-container {
+    flex-direction: column;
+  }
+
+  .ve-elements-sidebar {
+    width: 100%;
+    max-height: 120px;
+  }
+
+  .ve-presets-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+   智能装饰协调器样式 - 轻量协调者模式
+   ========================================== */
+
+/* 智能装饰状态指示器容器 */
+.decoration-smart-status {
+  background: var(--SmartThemeBlurTintColor, rgba(255, 255, 255, 0.1));
+  border: 1px solid var(--SmartThemeBorderColor, rgba(255, 255, 255, 0.2));
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 状态行布局 */
+.decoration-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 状态信息区域 */
+.decoration-status-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+/* 状态指示器圆点 */
+#smart-mode-indicator {
+  font-size: 0.8em;
+  transition: color 0.3s ease;
+}
+
+#smart-mode-indicator.text-success {
+  color: #28a745 !important;
+  text-shadow: 0 0 4px rgba(40, 167, 69, 0.5);
+}
+
+#smart-mode-indicator.text-info {
+  color: #17a2b8 !important;
+  text-shadow: 0 0 4px rgba(23, 162, 184, 0.5);
+}
+
+#smart-mode-indicator.text-warning {
+  color: #ffc107 !important;
+  text-shadow: 0 0 4px rgba(255, 193, 7, 0.5);
+}
+
+#smart-mode-indicator.text-danger {
+  color: #dc3545 !important;
+  text-shadow: 0 0 4px rgba(220, 53, 69, 0.5);
+}
+
+#smart-mode-indicator.text-muted {
+  color: #6c757d !important;
+}
+
+/* 状态文本 */
+#smart-mode-text {
+  font-size: 0.85em;
+  color: var(--SmartThemeBodyColor, #ffffff);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* 刷新装饰按钮 */
+#refresh-decorations {
+  background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #4a9eff) 0%, var(--SmartThemeQuoteColor, #357abd) 100%);
+  border: 1px solid var(--SmartThemeBorderColor, rgba(255, 255, 255, 0.3));
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+#refresh-decorations:hover {
+  background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #357abd) 0%, var(--SmartThemeQuoteColor, #2a5d8f) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#refresh-decorations:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#refresh-decorations i {
+  font-size: 0.9em;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .decoration-status-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .decoration-status-info {
+    justify-content: center;
+  }
+
+  #refresh-decorations {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 深色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .decoration-smart-status {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  #smart-mode-text {
+    color: #e0e0e0;
+  }
+}
+
+/* 动画效果 */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+#smart-mode-indicator.text-success {
+  animation: pulse 2s infinite;
+}
+
+/* 状态切换动画 */
+.decoration-smart-status * {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
