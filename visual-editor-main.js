@@ -337,27 +337,90 @@ export class VisualEditorMain {
               <!-- CSS装饰语法说明 -->
               <div class="visual-editor-decoration-section" style="margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.05); border-radius: 4px;">
                 <h5 style="margin: 0 0 8px 0; color: var(--SmartThemeQuoteColor);">
-                  <i class="fa fa-magic"></i> CSS装饰语法
+                  <i class="fa fa-magic"></i> 智能@装饰语法系统
                 </h5>
-                <p style="font-size: 0.85em; margin: 5px 0;">在自定义CSS中使用 <code>@元素：装饰名</code> 语法添加装饰：</p>
-                <pre style="background: rgba(0,0,0,0.1); padding: 8px; border-radius: 3px; font-size: 0.8em; margin: 8px 0;">
+                
+                <!-- 基本语法 -->
+                <div style="margin-bottom: 12px;">
+                  <h6 style="margin: 0 0 5px 0; font-size: 0.9em; font-weight: bold;">🔧 基本语法</h6>
+                  <p style="font-size: 0.85em; margin: 5px 0;">使用 <code>@元素：装饰名 { 样式属性 }</code> 语法动态添加装饰元素：</p>
+                  <ul style="font-size: 0.8em; margin: 5px 0; padding-left: 20px;">
+                    <li>支持中英文冒号：<code>：</code> 和 <code>:</code></li>
+                    <li>支持中英文分号：<code>；</code> 和 <code>;</code>，也可用换行分隔</li>
+                    <li>元素名支持中文名称（如"头像"、"用户消息"）和CSS选择器</li>
+                    <li>智能检测和管理：编辑时自动激活，3秒后自动关闭</li>
+                  </ul>
+                </div>
+
+                <!-- 示例代码 -->
+                <div style="margin-bottom: 12px;">
+                  <h6 style="margin: 0 0 5px 0; font-size: 0.9em; font-weight: bold;">💡 功能示例</h6>
+                  <pre style="background: rgba(0,0,0,0.1); padding: 8px; border-radius: 3px; font-size: 0.75em; line-height: 1.4; margin: 8px 0;">
+// 🌟 头像光环效果
 @头像：光环 {
-  宽度: 120像素
-  高度: 120像素
+  宽度: 120像素; 高度: 120像素
   背景图片: url(光环.png)
-  位置: 绝对
-  顶部: -10像素
+  位置: 绝对; 顶部: -10像素; 左边: -10像素
+  背景大小: 包含; 背景重复: 不重复
+  透明度: 0.8; 旋转: 5度
 }
 
-@角色消息：贴纸 {
-  背景图片: url(贴纸.png)
-  位置: 绝对
-  顶部: -20像素
-  右边: 10像素
+// 💬 消息气泡装饰
+@用户消息：角标 {
+  背景颜色: 红色; 颜色: 白色
+  内容: "新"; 字体大小: 10像素
+  位置: 绝对; 顶部: -5像素; 右边: -5像素
+  宽度: 20像素; 高度: 15像素; 圆角: 50%
+  文本对齐: 居中; 行高: 15像素
+}
+
+// 🎨 高级控制：超出父元素显示
+@.mes_text：浮动提示 {
+  背景: linear-gradient(45deg, #ff6b6b, #4ecdc4)
+  位置: 绝对; 顶部: -25像素; 左边: 50%
+  是否超出父元素显示: 是  // 🔑 关键属性
+  变换: translateX(-50%)
+  内边距: 5像素 10像素; 圆角: 15像素
+  颜色: 白色; 字体大小: 12像素
+  阴影: 0 2像素 8像素 rgba(0,0,0,0.2)
 }</pre>
-                <p style="font-size: 0.8em; opacity: 0.8;">
+                </div>
+
+                <!-- 支持的属性 -->
+                <div style="margin-bottom: 12px;">
+                  <h6 style="margin: 0 0 5px 0; font-size: 0.9em; font-weight: bold;">🎯 支持的中文属性</h6>
+                  <div style="font-size: 0.75em; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <div>
+                      <strong>位置尺寸：</strong>宽度、高度、顶部、底部、左边、右边、位置（绝对/相对/固定）<br>
+                      <strong>背景：</strong>背景颜色、背景图片、背景大小（包含/覆盖）、背景重复（重复/不重复）<br>
+                      <strong>文字：</strong>颜色、字体大小、文本对齐（居中/左对齐）、行高、内容
+                    </div>
+                    <div>
+                      <strong>边框：</strong>边框、圆角、阴影<br>
+                      <strong>间距：</strong>内边距、外边距<br>
+                      <strong>效果：</strong>透明度、旋转、变换、显示（隐藏/显示/块级/弹性）<br>
+                      <strong>特殊：</strong>是否超出父元素显示（是/否）
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 使用技巧 -->
+                <div style="margin-bottom: 8px;">
+                  <h6 style="margin: 0 0 5px 0; font-size: 0.9em; font-weight: bold;">💡 使用技巧</h6>
+                  <ul style="font-size: 0.75em; margin: 5px 0; padding-left: 20px;">
+                    <li><strong>智能管理：</strong>状态指示器显示绿色时表示装饰系统激活，支持实时预览</li>
+                    <li><strong>清理装饰：</strong>删除@装饰语法后会自动清理对应的DOM元素</li>
+                    <li><strong>超出显示：</strong>设置"是否超出父元素显示: 是"可让装饰突破容器限制</li>
+                    <li><strong>元素选择：</strong>可以用中文名（头像、用户消息）或CSS选择器（.mes, #avatar）</li>
+                    <li><strong>性能优化：</strong>系统采用增量更新，只处理变化的装饰规则</li>
+                  </ul>
+                </div>
+
+                <p style="font-size: 0.8em; opacity: 0.8; margin: 5px 0;">
+                  <i class="fa fa-circle" id="smart-mode-indicator" style="color: #666;"></i>
                   当前装饰规则：${preprocessorStats.rulesCount} 条 | 
-                  已装饰元素：${preprocessorStats.decoratedElements} 个
+                  已装饰元素：${preprocessorStats.decoratedElements} 个 |
+                  <span style="color: var(--SmartThemeQuoteColor);">智能协调器已就绪</span>
                 </p>
               </div>
               
